@@ -6,17 +6,18 @@ Week 1 starting point for the IDM3 Gallery group project. Follow the **Week 1 tu
 
 > **Test server URL**: `http://REPLACE-ME:8080` *(your instructor sets this per team)*
 
-## Quick start (dev environment = your laptop)
+## Choose your setup guide
 
-```bash
-git switch develop
-docker compose up -d db        # starts MySQL (used from Week 3; good practice now)
-./mvnw spring-boot:run         # Windows: mvnw.cmd spring-boot:run
-```
+Both guides get you to the same place: the app running locally, tests passing, ready to open your first PR. Pick one and work through it.
 
-Open http://localhost:8080 — log in with `student1 / Password123!` (dev/test only).
+| Guide | Use this if |
+| --- | --- |
+| **[SETUP-INTELLIJ.md](SETUP-INTELLIJ.md)** | You want the IDE to handle building, running, debugging and Git. Recommended if you're new to the command line. |
+| **[SETUP-CLI.md](SETUP-CLI.md)** | You prefer the terminal and your own editor, or you're working over SSH / on a low-spec machine. |
 
-Run tests: `./mvnw test`
+Whichever you pick, **CI runs the command-line build** (`./mvnw verify`) — so it's worth being able to run that yourself when a PR goes red. The CLI guide is the reference for that.
+
+Agree as a team which guide you're all using. Mixed setups are fine, but same-tool teams help each other faster.
 
 ## What's here
 
@@ -29,6 +30,10 @@ Run tests: `./mvnw test`
 | `.github/workflows/deploy-test.yml` | Auto-deploys `develop` to the test server |
 | `docker-compose.yml` | Local dev: app + MySQL |
 | `application-{dev,test,prod}.yml` | One config per environment |
+
+Log in with `student1 / Password123!` — dev/test only, never in prod.
+
+`.idea/` and `.vscode/` are already in `.gitignore` — never commit editor settings.
 
 ## Rules (enforced by branch protection)
 
